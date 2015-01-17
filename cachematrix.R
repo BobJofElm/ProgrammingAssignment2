@@ -7,24 +7,23 @@
 ## invertible matrix.  This list is created so that its companion function cacheSolve
 ## can be executed multiple times.  During first cacheSolve execution for the saved list, the
 ## solve function is executed and its results saved into the inverse matrix minv in the 
-## environment.  In subsequent executions against that list, the previously saved results are
-## simply returned.
+## environment.    In subsequent executions against that list, the previously saved results are
+## simply returned.   
 
 ## use following to create a valid... testmatrix<-matrix(c(1,2,4,0,3,1,4,4,0),nrow=3,ncol=3)
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix())  {
   minv <- NULL
   set <- function(y) {
     x <<- y
     minv <<- NULL
   }
   get <- function() x
-  setinv <- function(solve) minv <<- solve
-  getinv <- function() minv
+  setinv2 <- function(solve) minv <<- solve
+  getinv2 <- function() minv
   list(set = set, get = get,
-       setinv = setinv,
-       getinv = getinv)
-  
+       setinv2 = setinv2,
+       getinv2 = getinv2)
 }
 
 ## Write a short comment describing this function
